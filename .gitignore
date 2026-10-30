@@ -1,4 +1,7 @@
-node_module/
-frontend/
-backend/
-.env.example/
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment files and secrets
+.env
+**/.env
