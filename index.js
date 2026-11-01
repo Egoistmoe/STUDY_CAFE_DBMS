@@ -19,6 +19,7 @@ app.use('/api/readings', environmentReadingRoutes);
 app.use('/api/alerts', alertRoutes);
 app.use('/api/audit-logs', auditLogRoutes);
 app.use('/api/reports', reportRoutes);
+app.use(express.static('backend/public'));
 
 app.get('/', (req, res) => {
     res.send('Study Cafe System is running!');

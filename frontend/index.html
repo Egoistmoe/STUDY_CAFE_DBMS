@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDY CAFE</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  
+    <header>
+        <nav>
+            <h2>STUDY CAFE</h2>
+
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#spaces">Study Areas</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#reservation">Reservations</a></li>
+            </ul>
+
+            <a href="login.html" class="login-btn">Login</a>
+        </nav>
+    </header>
+
+    <main>
+
+     
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+                <p class="hero-label">YOUR SPACE TO FOCUS & GROW</p>
+
+                <h1>
+                    Study Better.<br>
+                    Dream Bigger.
+                </h1>
+
+                <p class="hero-description">
+                    A comfortable space to study, work, and enjoy
+                    your favorite snacks and drinks.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#reservation" class="primary-btn">Book a Seat</a>
+                    <a href="#about" class="secondary-btn">Explore More</a>
+                </div>
+            </div>
+
+        </section>
+
+        
+        <section class="about" id="about">
+
+            <div class="about-content">
+                <p class="section-label">GET TO KNOW US</p>
+
+                <h2>A Better Place to Study and Grow</h2>
+
+                <p>
+                    Study Cafe is a comfortable and welcoming place
+                    where students can study, complete assignments,
+                    work together, and enjoy affordable snacks and drinks.
+                </p>
+
+                <a href="#spaces" class="primary-btn">
+                    Explore Our Spaces
+                </a>
+            </div>
+
+        </section>
+
+       
+        <section class="spaces" id="spaces">
+
+            <div class="section-heading">
+                <p class="section-label">OUR FACILITIES</p>
+                <h2>Find Your Perfect Study Space</h2>
+                <p>Choose a comfortable space that fits your study needs.</p>
+            </div>
+
+            <div class="space-container">
+
+                <div class="space-card">
+                    <div class="space-icon">📚</div>
+                    <h3>Individual Study</h3>
+                    <p>A quiet and comfortable space for focused studying.</p>
+                    <span>Quiet Environment</span>
+                </div>
+
+                <div class="space-card">
+                    <div class="space-icon">👥</div>
+                    <h3>Group Study</h3>
+                    <p>A shared space for teamwork and discussions.</p>
+                    <span>Collaboration Area</span>
+                </div>
+
+                <div class="space-card">
+                    <div class="space-icon">💻</div>
+                    <h3>Computer Area</h3>
+                    <p>A dedicated space for research and computer activities.</p>
+                    <span>Computer Facilities</span>
+                </div>
+
+            </div>
+
+        </section>
+
+     
+        <section class="menu" id="menu">
+
+            <div class="section-heading">
+                <p class="section-label">FRESHLY MADE FOR YOU</p>
+                <h2>Our Food & Drinks</h2>
+                <p>Enjoy affordable snacks and drinks during your study sessions.</p>
+            </div>
+
+            <div class="menu-container">
+
+                <div class="menu-card">
+                    <div class="menu-icon">☕</div>
+                    <h3>Iced Coffee</h3>
+                    <p>Refreshing coffee for your study session.</p>
+                    <span>₱80.00</span>
+                </div>
+
+                <div class="menu-card">
+                    <div class="menu-icon">🥤</div>
+                    <h3>Milk Tea</h3>
+                    <p>A delicious and creamy drink.</p>
+                    <span>₱75.00</span>
+                </div>
+
+                <div class="menu-card">
+                    <div class="menu-icon">🥪</div>
+                    <h3>Sandwich</h3>
+                    <p>A quick and satisfying snack.</p>
+                    <span>₱60.00</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="reservation" id="reservation">
+
+            <div class="reservation-heading">
+                <p class="section-label">BOOK YOUR STUDY SESSION</p>
+                <h2>Reserve Your Study Space</h2>
+                <p>Choose your preferred study area and schedule.</p>
+            </div>
+
+            <div class="reservation-form">
+
+                <form id="reservationForm">
+
+                    <div class="form-group">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" id="fullname"
+                            placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email"
+                            placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studyArea">Study Area</label>
+                        <select id="studyArea" required>
+                            <option value="">Select study area</option>
+                            <option value="Individual Study">Individual Study</option>
+                            <option value="Group Study">Group Study</option>
+                            <option value="Computer Area">Computer Area</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Reservation Date</label>
+                            <input type="date" id="date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="startTime">Start Time</label>
+                            <input type="time" id="startTime" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="endTime">End Time</label>
+                        <input type="time" id="endTime" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        Submit Reservation
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <div class="footer-brand">
+                <h2>STUDY CAFE</h2>
+                <p>Your space to focus, learn, and grow.</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#spaces">Study Areas</a>
+                <a href="#menu">Menu</a>
+                <a href="#reservation">Reservations</a>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>Email: studycafe@example.com</p>
+                <p>Open for students and learners.</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Study Cafe. All Rights Reserved.</p>
+        </div>
+
+    </footer>
+
+</body>
+</html>
