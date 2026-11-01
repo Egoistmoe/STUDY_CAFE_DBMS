@@ -8,6 +8,17 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.static('public'));
+
+const environmentReadingRoutes = require('./routes/environmentReadingRoutes');
+const alertRoutes = require('./routes/alertRoutes');
+const auditLogRoutes = require('./routes/auditLogRoutes');
+const reportRoutes = require('./routes/reportRoutes');
+
+app.use('/api/readings', environmentReadingRoutes);
+app.use('/api/alerts', alertRoutes);
+app.use('/api/audit-logs', auditLogRoutes);
+app.use('/api/reports', reportRoutes);
 app.use(express.static('backend/public'));
 
 app.get('/', (req, res) => {

@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Coverage Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background: #f4f6f9;
+        }
+
+        h1 {
+            color: #263238;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #263238;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Reading Coverage Report</h1>
+    <p>Study areas and their environment reading coverage.</p>
+
+    <p id="message">Loading report...</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Study Area ID</th>
+                <th>Area Name</th>
+                <th>Total Readings</th>
+                <th>Coverage Status</th>
+            </tr>
+        </thead>
+        <tbody id="reportTable"></tbody>
+    </table>
+
+    <script>
+        async function loadReport() {
+            const message = document.getElementById('message');
+            const table = document.getElementById('reportTable');
+
+            try {
+                const response = await fetch('/api/reports/reading-coverage');
+
+                if (!response.ok) {
+                    throw new Error('Failed to load report.');
+                }
+
+                const reports = await response.json();
+
+                table.innerHTML = '';
+
+                if (reports.length === 0) {
+                    message.textContent = 'No study areas found.';
+                    return;
+                }
+
+                message.textContent = 'Report loaded successfully.';
+
+                reports.forEach(report => {
+                    const row = document.createElement('tr');
+
+                    const values = [
+                        report.study_area_id,
+                        report.area_name,
+                        report.total_readings,
+                        report.coverage_status
+                    ];
+
+                    values.forEach(value => {
+                        const cell = document.createElement('td');
+                        cell.textContent = value;
+                        row.appendChild(cell);
+                    });
+
+                    table.appendChild(row);
+                });
+
+            } catch (error) {
+                message.textContent = error.message;
+            }
+        }
+
+        loadReport();
+    </script>
+
+</body>
+</html>
