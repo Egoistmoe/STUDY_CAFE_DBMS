@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Cafe - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <h2>STUDY CAFE</h2>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+        </nav>
+    </header>
+
+    <main class="dashboard-page">
+        <h1>Dashboard Overview</h1>
+        <p>Study Cafe statistics and review reports</p>
+
+        <section class="dashboard-cards">
+            <article class="dashboard-card">
+                <h3>Total Members</h3>
+                <p id="totalMembers">Loading...</p>
+            </article>
+
+            <article class="dashboard-card">
+                <h3>Total Reviews</h3>
+                <p id="totalReviews">Loading...</p>
+            </article>
+
+            <article class="dashboard-card">
+                <h3>Average Rating</h3>
+                <p id="averageRating">Loading...</p>
+            </article>
+        </section>
+
+        <section class="dashboard-reports">
+            <h2>Reviews per Study Area</h2>
+            <div id="reviewCountList">Loading...</div>
+        </section>
+    </main>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

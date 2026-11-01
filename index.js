@@ -17,7 +17,8 @@ const memberRoutes = require('./routes/memberRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 const feedbackReviewRoutes = require('./routes/feedbackReviewRoutes');
 const reportRoutes = require('./routes/reportRoutes');
-
+const authRoutes = require('./routes/authRoutes');
+app.use('/api/auth', authRoutes);
 app.use('/api/members', memberRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/feedback-reviews', feedbackReviewRoutes);
