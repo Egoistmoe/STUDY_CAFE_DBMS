@@ -1,1 +1,12 @@
 
+### Study Cafe DBMS – Team Task Assignment
+
+| Member       | GitHub Username | Assigned Tables                                             | Endpoints / Screens                                        | Join Report                                                                        | Responsibility / Feature Role                                     |
+| ------------ | --------------- | ----------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| A - Guinanas | To be filled    | `roles`, `branches`, `users`                                | Login, Users CRUD, Roles and Branches Lists                | Users with role and branch (INNER JOIN)                                            | Core: Login, Roles, Shared Layout, DB Connection                  |
+| B - Algie    | To be filled    | `study_areas`, `seats`, `menu_items`                        | Seats CRUD, Study Areas, Menu Items                        | Seats with no active booking (LEFT JOIN)                                           | Master Data                                                       |
+| C - Diaz     | To be filled    | `bookings`, `orders`, `order_items`                         | Bookings CRUD, Check-in, Check-out, Order Entry            | Bookings with seat, area, and order totals (INNER JOIN)                            | Transactions                                                      |
+| D - Maldan   | `TanduayRam`    | `membership_tiers`, `area_thresholds`, `housekeeping_tasks` | Housekeeping Tasks CRUD, Membership Tiers, Area Thresholds | Current tier per member (INNER JOIN)                                               | Unique Feature: No-show Release, Pricing, Tier Upgrade            |
+| E - Macias   | `lowiij`        | `environment_readings`, `alerts`, `audit_logs`              | Alerts CRUD, Readings Entry, Audit Log View                | Areas vs. Reading Coverage Gaps (FULL OUTER JOIN via UNION of LEFT and RIGHT JOIN) | Unique Workflow: Threshold Alerts, Automatic Tasks, Audit Logging |
+| F - Javier   | `Egoistmoe`     | `members`, `feedback_reviews`                               | Feedback Reviews CRUD, Members List and Entry, Dashboard   | Review Count per Study Area (RIGHT JOIN)                                           | Reports, Dashboard, ER Diagram                                    |
+
