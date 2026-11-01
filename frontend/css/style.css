@@ -842,3 +842,133 @@ nav ul li a:hover {
     }
 }
 
+/* =================================
+   DASHBOARD PAGE
+================================= */
+
+.dashboard-page {
+    min-height: 100vh;
+    padding: 65px 8%;
+    background: linear-gradient(135deg, #f5f3ee, #e9eee7);
+}
+
+.dashboard-page h1 {
+    color: #244b3a;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.dashboard-page > p {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 35px;
+}
+
+/* SUMMARY CARDS */
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    margin: 30px 0 40px;
+}
+
+.dashboard-card {
+    background: #fff;
+    padding: 32px;
+    border: 1px solid rgba(36, 75, 58, 0.08);
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    transition: 0.3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.09);
+}
+
+.dashboard-card h3 {
+    color: #666;
+    font-size: 15px;
+    font-weight: normal;
+    margin-bottom: 18px;
+}
+
+.dashboard-card p {
+    color: #244b3a;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+/* REVIEW REPORT */
+
+.dashboard-reports {
+    background: #fff;
+    padding: 35px;
+    border: 1px solid rgba(36, 75, 58, 0.08);
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-reports h2 {
+    color: #244b3a;
+    font-size: 23px;
+    margin-bottom: 25px;
+}
+
+#reviewCountList {
+    color: #555;
+    line-height: 1.8;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 900px) {
+    .dashboard-page {
+        padding: 50px 6%;
+    }
+
+    .dashboard-cards {
+        gap: 18px;
+    }
+
+    .dashboard-card {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-page {
+        padding: 40px 6%;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-card p {
+        font-size: 30px;
+    }
+
+    .dashboard-reports {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-page {
+        padding: 35px 5%;
+    }
+
+    .dashboard-page h1 {
+        font-size: 29px;
+    }
+
+    .dashboard-reports {
+        padding: 20px;
+    }
+
+    .dashboard-reports h2 {
+        font-size: 20px;
+    }
+}
