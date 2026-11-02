@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Cafe - Users</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <h2>STUDY CAFE</h2>
+            <p class="sidebar-label">ADMIN PANEL</p>
+            <nav>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="users.html" class="active">Users</a>
+                <a href="roles.html">Roles</a>
+                <a href="branches.html">Branches</a>
+            </nav>
+            <a href="login.html" class="logout-link">Logout</a>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <h1>Users Management</h1>
+                <p>Add, view, edit, and delete registered users.</p>
+            </header>
+
+            <section class="dashboard-card">
+                <h3 id="formTitle">Add New User</h3>
+
+                <form id="userForm">
+                    <input type="hidden" id="userId">
+
+                    <div class="form-group">
+                        <label for="full_name">Full Name</label>
+                        <input type="text" id="full_name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password"
+                               minlength="8"
+                               placeholder="At least 8 characters">
+                        <small id="passwordHint">Required for a new user.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role_id">Role</label>
+                        <select id="role_id" required>
+                            <option value="">Select a role</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="branch_id">Branch</label>
+                        <select id="branch_id">
+                            <option value="">No branch</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="is_active">Account Status</label>
+                        <select id="is_active" required>
+                            <option value="1">Active</option>
+                            <option value="0">Inactive</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="saveButton">
+                        Add User
+                    </button>
+
+                    <button type="button" id="cancelButton"
+                            class="submit-btn" style="display: none;">
+                        Cancel Edit
+                    </button>
+                </form>
+
+                <p id="formMessage"></p>
+            </section>
+
+            <br>
+
+            <section class="dashboard-card">
+                <h3>Registered Users</h3>
+                <p id="usersMessage">Loading users...</p>
+
+                <div style="overflow-x: auto;">
+                    <table id="usersTable"
+                           style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr>
+                                <th style="padding: 12px; text-align: left;">ID</th>
+                                <th style="padding: 12px; text-align: left;">Full Name</th>
+                                <th style="padding: 12px; text-align: left;">Email</th>
+                                <th style="padding: 12px; text-align: left;">Role</th>
+                                <th style="padding: 12px; text-align: left;">Branch</th>
+                                <th style="padding: 12px; text-align: left;">Status</th>
+                                <th style="padding: 12px; text-align: left;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/users.js"></script>
+</body>
+</html>
