@@ -9,6 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('backend/public'));
+app.use('/api/housekeeping', require('./routes/housekeepingroutes'));
 
 app.get('/', (req, res) => {
     res.send('Study Cafe System is running!');
