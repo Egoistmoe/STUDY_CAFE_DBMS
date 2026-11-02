@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environment Readings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        #message {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Environment Readings</h2>
+
+        <form id="readingForm">
+            <label>Study Area ID</label>
+            <input type="number" id="study_area_id" required>
+
+            <label>Metric Name</label>
+            <select id="metric_name" required>
+                <option value="Temperature">Temperature</option>
+                <option value="Noise">Noise</option>
+                <option value="Wi-Fi Speed">Wi-Fi Speed</option>
+            </select>
+
+            <label>Reading Value</label>
+            <input type="number" step="0.01" id="reading_value" required>
+
+            <button type="submit">Add Reading</button>
+        </form>
+
+        <p id="message"></p>
+
+        <h3>Saved Readings</h3>
+
+        <button onclick="loadReadings()">Refresh Readings</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Area</th>
+                    <th>Metric</th>
+                    <th>Value</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody id="readingsTable"></tbody>
+        </table>
+    </div>
+
+    <script>
+        const API_URL = '/api/readings';
+
+        async function loadReadings() {
+            const response = await fetch(API_URL);
+            const readings = await response.json();
+
+            const table = document.getElementById('readingsTable');
+            table.innerHTML = '';
+
+            readings.forEach(reading => {
+                table.innerHTML += `
+                    <tr>
+                        <td>${reading.area_name}</td>
+                        <td>${reading.metric_name}</td>
+                        <td>${reading.reading_value}</td>
+                        <td>${new Date(reading.recorded_at).toLocaleString()}</td>
+                    </tr>
+                `;
+            });
+        }
+
+        document.getElementById('readingForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const data = {
+                study_area_id: Number(document.getElementById('study_area_id').value),
+                metric_name: document.getElementById('metric_name').value,
+                reading_value: Number(document.getElementById('reading_value').value)
+            };
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                document.getElementById('message').textContent = result.message;
+
+                if (response.ok) {
+                    document.getElementById('readingForm').reset();
+                    loadReadings();
+                }
+            } catch (error) {
+                document.getElementById('message').textContent = 'Something went wrong.';
+            }
+        });
+
+        loadReadings();
+    </script>
+
+</body>
+</html>

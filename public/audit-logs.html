@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Logs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background: #f4f6f9;
+        }
+
+        h1 {
+            color: #263238;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #263238;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+
+        #message {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Audit Logs</h1>
+    <p>View the activity history of the Study Cafe System.</p>
+
+    <p id="message">Loading audit logs...</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Performed By</th>
+                <th>Action</th>
+                <th>Table</th>
+                <th>Record ID</th>
+                <th>Details</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody id="auditLogsTable"></tbody>
+    </table>
+
+    <script>
+        async function loadAuditLogs() {
+            const message = document.getElementById('message');
+            const table = document.getElementById('auditLogsTable');
+
+            try {
+                const response = await fetch('/api/audit-logs');
+
+                if (!response.ok) {
+                    throw new Error('Failed to load audit logs.');
+                }
+
+                const logs = await response.json();
+
+                table.innerHTML = '';
+
+                if (logs.length === 0) {
+                    message.textContent = 'No audit logs found.';
+                    return;
+                }
+
+                message.textContent = 'Audit logs loaded successfully.';
+
+                logs.forEach(log => {
+                    const row = document.createElement('tr');
+
+                    const values = [
+                        log.audit_log_id,
+                        log.performed_by,
+                        log.action,
+                        log.table_name,
+                        log.record_id ?? '-',
+                        log.details ?? '-',
+                        new Date(log.created_at).toLocaleString()
+                    ];
+
+                    values.forEach(value => {
+                        const cell = document.createElement('td');
+                        cell.textContent = value;
+                        row.appendChild(cell);
+                    });
+
+                    table.appendChild(row);
+                });
+
+            } catch (error) {
+                message.textContent = error.message;
+            }
+        }
+
+        loadAuditLogs();
+    </script>
+
+</body>
+</html>
