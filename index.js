@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
+const db = require('./config/db');
 
 const app = express();
 
@@ -20,6 +21,12 @@ app.use('/api/alerts', alertRoutes);
 app.use('/api/audit-logs', auditLogRoutes);
 app.use('/api/reports', reportRoutes);
 app.use(express.static('backend/public'));
+app.use(express.static('frontend'));
+
+// API Routes
+app.use('/api/bookings', require('./routes/bookings'));
+app.use('/api/orders', require('./routes/orders'));
+app.use('/api/order-items', require('./routes/orders-items'));
 
 app.get('/', (req, res) => {
     res.send('Study Cafe System is running!');
