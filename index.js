@@ -10,6 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('frontend'));
 
+app.use(express.static('public'));
 app.use(express.static('frontend'));
 
 // API Routes
@@ -23,6 +24,10 @@ app.get('/', (req, res) => {
   res.send('Study Cafe System is running!');
 });
 
+// Member B 
+app.use('/api/study-areas', require('./routes/studyAreaRoutes'));
+app.use('/api/seats', require('./routes/seatRoutes'));
+app.use('/api/menu-items', require('./routes/menuItemRoutes'));
 const memberRoutes = require('./routes/memberRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 const feedbackReviewRoutes = require('./routes/feedbackReviewRoutes');
