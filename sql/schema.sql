@@ -188,6 +188,31 @@ CREATE TABLE feedback_reviews (
     CHECK (rating BETWEEN 1 AND 5)
 );
 
+CREATE TABLE membership_tiers (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50),
+  min_hours INT,
+  discount DECIMAL(5,2)
+);
+
+CREATE TABLE area_thresholds (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  area_id INT,
+  max_capacity INT,
+  max_hours INT
+);
+
+CREATE TABLE housekeeping_tasks (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  area_id INT,
+  description VARCHAR(255),
+  status VARCHAR(20) DEFAULT 'pending'
+);
+
+SELECT m.name, t.name AS tier
+FROM members m
+INNER JOIN membership_tiers t ON m.tier_id = t.id;
+
 CREATE VIEW v_reading_days AS
 SELECT
     study_area_id,
