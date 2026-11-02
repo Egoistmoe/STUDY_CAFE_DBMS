@@ -843,8 +843,135 @@ nav ul li a:hover {
 }
 
 /* =================================
+   STUDY CAFE ADMIN DASHBOARD
+
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    background: #f5f3ee;
+}
+
+.sidebar {
+    width: 250px;
+    background: #244b3a;
+    color: white;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2 {
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.sidebar-label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #c5d6c9;
+    margin-bottom: 35px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sidebar nav a,
+.logout-link {
+    color: white;
+    text-decoration: none;
+    padding: 13px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: #47775b;
+}
+
+.logout-link {
+    margin-top: auto;
+    background: #47775b;
+}
+
+.dashboard-main {
+    flex: 1;
+    padding: 40px;
+}
+
+.dashboard-header {
+    margin-bottom: 35px;
+}
+
+.dashboard-header h1 {
+    color: #244b3a;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.dashboard-header p {
+    color: #666;
+}
+
+.dashboard-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.dashboard-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+.dashboard-card h3 {
+    color: #244b3a;
+    margin-bottom: 12px;
+}
+
+.dashboard-card p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.dashboard-card a {
+    color: #47775b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.dashboard-card a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .dashboard-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: auto;
+    }
+
+    .sidebar nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .logout-link {
+        margin-top: 20px;
+    }
+
+    .dashboard-main {
+        padding: 25px 18px;
+    }
+}
    DASHBOARD PAGE
-================================= */
 
 .dashboard-page {
     min-height: 100vh;

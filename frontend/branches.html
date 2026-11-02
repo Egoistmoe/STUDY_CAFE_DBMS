@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Cafe - Branches</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <h2>STUDY CAFE</h2>
+            <p class="sidebar-label">ADMIN PANEL</p>
+            <nav>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="users.html">Users</a>
+                <a href="roles.html">Roles</a>
+                <a href="branches.html" class="active">Branches</a>
+            </nav>
+            <a href="login.html" class="logout-link">Logout</a>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <h1>Branches Management</h1>
+                <p>View the registered Study Cafe branches.</p>
+            </header>
+
+            <section class="dashboard-card">
+                <h3>Registered Branches</h3>
+                <p id="branchesMessage">Loading branches...</p>
+
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr>
+                                <th style="padding: 12px; text-align: left;">Branch ID</th>
+                                <th style="padding: 12px; text-align: left;">Branch Name</th>
+                                <th style="padding: 12px; text-align: left;">Address</th>
+                                <th style="padding: 12px; text-align: left;">Phone</th>
+                            </tr>
+                        </thead>
+                        <tbody id="branchesTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/branches.js"></script>
+</body>
+</html>
