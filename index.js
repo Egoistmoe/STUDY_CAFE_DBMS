@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
+const db = require('./config/db');
 
 const app = express();
 
@@ -9,6 +10,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('frontend'));
 
+app.use(express.static('frontend'));
+
+// API Routes
+app.use('/api/bookings', require('./routes/bookings'));
+app.use('/api/orders', require('./routes/orders'));
+app.use('/api/order-items', require('./routes/orders-items'));
 app.use(express.static('backend/public'));
 app.use('/api/housekeeping', require('./routes/housekeepingroutes'));
 
