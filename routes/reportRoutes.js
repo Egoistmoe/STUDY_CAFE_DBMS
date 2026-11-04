@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../config/db');
+const reportController = require('../controllers/reportController');
 
 router.get('/reading-coverage', async (req, res) => {
     try {
@@ -40,18 +41,9 @@ router.get('/reading-coverage', async (req, res) => {
         res.status(200).json(rows);
 
     } catch (error) {
-        res.status(500).json({
-            message: error.message
-        });
+        res.status(500).json({ message: error.message });
     }
 });
-
-module.exports = router;
-
-const express = require('express');
-const router = express.Router();
-
-const reportController = require('../controllers/reportController');
 
 router.get('/study-area-reviews', reportController.getStudyAreaReviews);
 

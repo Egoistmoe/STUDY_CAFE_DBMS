@@ -1,4 +1,4 @@
-const db = require('../config/database');
+const db = require('../config/db');
 
 exports.getAll = async(req, res) => {
     const [rows] = await db.query('SELECT * FROM housekeeping_tasks');
