@@ -40,6 +40,9 @@ app.use('/api/auth', authRoutes);
 app.use('/api/members', memberRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/feedback-reviews', feedbackReviewRoutes);
+app.use('/roles', require('./routes/roleRoutes'));
+app.use('/branches', require('./routes/branchRoutes'));
+app.use('/users', require('./routes/userRoutes'));
 
 const PORT = process.env.PORT || 3000;
 

@@ -15,7 +15,7 @@ async function loadDashboardSummary() {
             data.total_reviews;
 
         document.getElementById('averageRating').textContent =
-            data.avg_rating ?? 'No ratings yet';
+            data.avg_rating !== null ? Number(data.avg_rating).toFixed(1) + ' / 5' : 'No ratings yet';
 
     } catch (error) {
         console.error('Dashboard error:', error);
