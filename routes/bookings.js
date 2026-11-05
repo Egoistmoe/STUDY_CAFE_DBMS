@@ -22,13 +22,13 @@ router.get('/', async (req, res) => {
 // ADD BOOKING
 router.post('/', async (req, res) => {
     try {
-        const { user_id, seat_id, start_time, end_time, status } = req.body;
+        const { member_id, seat_id, start_time, end_time, status } = req.body;
 
         const [result] = await db.query(
             `INSERT INTO bookings 
-            (user_id, seat_id, start_time, end_time, status)
+            (member_id, seat_id, start_time, end_time, status)
             VALUES (?, ?, ?, ?, ?)`,
-            [user_id, seat_id, start_time, end_time, status]
+            [member_id, seat_id, start_time, end_time, status]
         );
 
         res.json({
@@ -43,14 +43,14 @@ router.post('/', async (req, res) => {
 // UPDATE BOOKING
 router.put('/:id', async (req, res) => {
     try {
-        const { user_id, seat_id, start_time, end_time, status } = req.body;
+        const { member_id, seat_id, start_time, end_time, status } = req.body;
 
         await db.query(
             `UPDATE bookings
-            SET user_id = ?, seat_id = ?, start_time = ?, 
+            SET member_id = ?, seat_id = ?, start_time = ?, 
                 end_time = ?, status = ?
             WHERE booking_id = ?`,
-            [user_id, seat_id, start_time, end_time, status, req.params.id]
+            [member_id, seat_id, start_time, end_time, status, req.params.id]
         );
 
         res.json({ message: 'Booking updated successfully' });
