@@ -1,9 +1,9 @@
 
 async function loadRoles() {
-    const rolesTable = document.getElementById('rolesTable');
+    const rolesTable = document.getElementById('rolesTableBody');
 
     try {
-        const response = await fetch('/roles');
+        const response = await fetch(API_BASE + '/roles');
 
         if (!response.ok) {
             throw new Error('Failed to load roles');

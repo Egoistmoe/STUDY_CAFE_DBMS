@@ -21,8 +21,8 @@ const passwordHint = document.getElementById('passwordHint');
 async function loadDropdowns() {
     try {
         const [rolesResponse, branchesResponse] = await Promise.all([
-            fetch('/roles'),
-            fetch('/branches')
+            fetch(API_BASE + '/roles'),
+            fetch(API_BASE + '/branches')
         ]);
 
         if (!rolesResponse.ok || !branchesResponse.ok) {
@@ -55,7 +55,7 @@ async function loadDropdowns() {
 // LOAD ALL USERS
 async function loadUsers() {
     try {
-        const response = await fetch('/users');
+        const response = await fetch(API_BASE + '/users');
         const users = await response.json();
 
         if (!response.ok) {
@@ -150,7 +150,7 @@ userForm.addEventListener('submit', async function (event) {
     const method = id ? 'PUT' : 'POST';
 
     try {
-        const response = await fetch(url, {
+        const response = await fetch(API_BASE + url, {
             method: method,
             headers: {
                 'Content-Type': 'application/json'
@@ -176,7 +176,7 @@ userForm.addEventListener('submit', async function (event) {
 // EDIT USER
 async function editUser(id) {
     try {
-        const response = await fetch(`/users/${id}`);
+        const response = await fetch(API_BASE + `/users/${id}`);
         const user = await response.json();
 
         if (!response.ok) {
@@ -217,7 +217,7 @@ async function deleteUser(id) {
     }
 
     try {
-        const response = await fetch(`/users/${id}`, {
+        const response = await fetch(API_BASE + `/users/${id}`, {
             method: 'DELETE'
         });
 

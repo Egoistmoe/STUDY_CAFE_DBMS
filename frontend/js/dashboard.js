@@ -1,6 +1,6 @@
 async function loadDashboardSummary() {
     try {
-        const response = await fetch('/api/dashboard');
+        const response = await fetch(API_BASE + '/api/dashboard');
 
         if (!response.ok) {
             throw new Error('Failed to load dashboard summary');
@@ -15,7 +15,7 @@ async function loadDashboardSummary() {
             data.total_reviews;
 
         document.getElementById('averageRating').textContent =
-            data.avg_rating ?? 'No ratings yet';
+            data.avg_rating !== null ? Number(data.avg_rating).toFixed(1) + ' / 5' : 'No ratings yet';
 
     } catch (error) {
         console.error('Dashboard error:', error);
@@ -25,7 +25,7 @@ async function loadDashboardSummary() {
 
 async function loadReviewCountPerArea() {
     try {
-        const response = await fetch('/api/dashboard/review-count-per-area');
+        const response = await fetch(API_BASE + '/api/dashboard/review-count-per-area');
 
         if (!response.ok) {
             throw new Error('Failed to load review counts');

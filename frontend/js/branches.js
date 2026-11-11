@@ -4,7 +4,7 @@ const branchesTableBody = document.getElementById('branchesTableBody');
 
 async function loadBranches() {
     try {
-        const response = await fetch('/branches');
+        const response = await fetch(API_BASE + '/branches');
         const branches = await response.json();
 
         if (!response.ok) {
