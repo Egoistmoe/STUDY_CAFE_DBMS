@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Cafe - Booking Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+        <h2>STUDY CAFE</h2>
+        <p class="sidebar-label">ADMIN PANEL</p>
+
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="users.html">Users</a>
+            <a href="roles.html">Roles</a>
+            <a href="branches.html">Branches</a>
+            <a href="bookings.html" class="active">Bookings</a>
+        </nav>
+
+        <a href="login.html" class="logout-link">Logout</a>
+    </aside>
+
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+            <h1>Booking Management</h1>
+            <p>View and manage study cafe bookings.</p>
+        </header>
+
+        <section class="booking-section">
+
+            <h2>All Bookings</h2>
+
+            <p id="bookingMessage" class="booking-message">
+                Loading bookings...
+            </p>
+
+            <div class="booking-table-container">
+                <table class="booking-table">
+                    <thead>
+                        <tr>
+                            <th>Booking ID</th>
+                            <th>Member ID</th>
+                            <th>Seat</th>
+                            <th>Study Area</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                            <th>Status</th>
+                            <th>Total Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="bookingTableBody"></tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/bookings.js"></script>
+
+</body>
+</html>
