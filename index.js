@@ -23,13 +23,14 @@ const memberRoutes = require('./routes/memberRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 const feedbackReviewRoutes = require('./routes/feedbackReviewRoutes');
 const authRoutes = require('./routes/authRoutes');
+const bookingsRoutes = require('./routes/bookingsRoutes');
 
 // API routes
 app.use('/api/readings', environmentReadingRoutes);
 app.use('/api/alerts', alertRoutes);
 app.use('/api/audit-logs', auditLogRoutes);
 app.use('/api/reports', reportRoutes);
-app.use('/api/bookings', require('./routes/bookings'));
+app.use('/api/bookings', bookingsRoutes);
 app.use('/api/orders', require('./routes/orders'));
 app.use('/api/order-items', require('./routes/orders-items'));
 app.use('/api/housekeeping', require('./routes/housekeepingroutes'));

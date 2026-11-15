@@ -1178,3 +1178,115 @@ nav ul li a:hover {
     .sidebar nav { margin-left: 0; }
     .logout-link { margin: 0; }
 }
+
+/* =================================
+   ADMIN BOOKING MANAGEMENT
+================================= */
+
+.booking-section {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+    margin-top: 25px;
+}
+
+.booking-section h2 {
+    color: #244b3a;
+    margin-bottom: 20px;
+}
+
+.booking-table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.booking-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+.booking-table th {
+    background: #244b3a;
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+.booking-table td {
+    padding: 14px 15px;
+    border-bottom: 1px solid #eeeeee;
+    color: #444;
+}
+
+.booking-table tr:hover {
+    background: #f5f3ee;
+}
+
+.booking-status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.status-confirmed {
+    background: #e3f2e8;
+    color: #244b3a;
+}
+
+.status-checked-in {
+    background: #e3efff;
+    color: #245a91;
+}
+
+.status-completed {
+    background: #eeeeee;
+    color: #555555;
+}
+
+.status-cancelled {
+    background: #ffe5e5;
+    color: #a52828;
+}
+
+.status-no-show {
+    background: #fff0d6;
+    color: #9a6500;
+}
+
+.booking-action {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.edit-booking {
+    background: #47775b;
+    color: white;
+}
+
+.delete-booking {
+    background: #dc3545;
+    color: white;
+}
+
+.booking-action:hover {
+    opacity: 0.85;
+}
+
+.booking-message {
+    color: #666;
+    padding: 20px 0;
+}
+
+@media (max-width: 768px) {
+    .booking-section {
+        padding: 20px;
+    }
+}
