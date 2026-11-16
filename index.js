@@ -23,7 +23,7 @@ const memberRoutes = require('./routes/memberRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 const feedbackReviewRoutes = require('./routes/feedbackReviewRoutes');
 const authRoutes = require('./routes/authRoutes');
-const bookingsRoutes = require('./routes/bookingsRoutes');
+const bookingsRoutes = require('./routes/bookingRoutes'); // NOTE (Nicole): was './routes/bookingsRoutes' - the file is named bookingRoutes.js, so the app crashed on start
 
 // API routes
 app.use('/api/readings', environmentReadingRoutes);
@@ -41,6 +41,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/members', memberRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/feedback-reviews', feedbackReviewRoutes);
+app.use('/api/announcements', require('./routes/announcementRoutes')); // Announcements module (Nicole)
 app.use('/roles', require('./routes/roleRoutes'));
 app.use('/branches', require('./routes/branchRoutes'));
 app.use('/users', require('./routes/userRoutes'));
