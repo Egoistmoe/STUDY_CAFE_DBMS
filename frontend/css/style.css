@@ -1290,3 +1290,290 @@ nav ul li a:hover {
         padding: 20px;
     }
 }
+
+/* =====================================================
+   ANNOUNCEMENTS AND NOTICES MODULE (Nicole)
+   Uses the existing green/cream palette:
+   #244b3a, #47775b, #1c3328, #f5f3ee
+===================================================== */
+
+.announcements-page {
+    background-color: #f5f3ee;
+    min-height: calc(100vh - 74px);
+}
+
+.announcements-hero {
+    text-align: center;
+    padding: 70px 10% 30px;
+}
+
+.announcements-hero h1 {
+    color: #244b3a;
+    font-size: clamp(32px, 4vw, 44px);
+    margin-bottom: 15px;
+}
+
+.announcements-hero > p:last-child {
+    color: #666666;
+    line-height: 1.7;
+}
+
+.announcements-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 5% 70px;
+}
+
+.announcement-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.announcement-toolbar[hidden],
+.announcement-message[hidden],
+.announcement-modal[hidden] {
+    display: none;
+}
+
+.announcement-tabs {
+    display: flex;
+    gap: 8px;
+}
+
+.announcement-tab {
+    padding: 10px 20px;
+    border: 1px solid #244b3a;
+    border-radius: 6px;
+    background-color: transparent;
+    color: #244b3a;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.announcement-tab.active,
+.announcement-tab:hover {
+    background-color: #244b3a;
+    color: #ffffff;
+}
+
+.announcement-add-btn {
+    border: none;
+    cursor: pointer;
+    padding: 12px 22px;
+    font-size: 14px;
+}
+
+.announcement-message {
+    text-align: center;
+    color: #666666;
+    padding: 40px 20px;
+    background-color: #ffffff;
+    border: 1px solid rgba(36, 75, 58, 0.07);
+    border-radius: 12px;
+}
+
+.announcement-message a {
+    color: #244b3a;
+    font-weight: bold;
+}
+
+.announcement-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.announcement-card {
+    background-color: #ffffff;
+    padding: 28px 25px;
+    border: 1px solid rgba(36, 75, 58, 0.07);
+    border-left: 5px solid #47775b;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.announcement-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.announcement-card.is-inactive {
+    opacity: 0.7;
+    border-left-color: #b5b5b5;
+}
+
+.announcement-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.announcement-card h3 {
+    color: #244b3a;
+    font-size: 21px;
+    margin-bottom: 10px;
+    overflow-wrap: anywhere;
+}
+
+.announcement-body {
+    color: #555555;
+    line-height: 1.7;
+    margin-bottom: 18px;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+.announcement-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    color: #777777;
+    font-size: 13px;
+}
+
+.announcement-category,
+.announcement-status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.announcement-category {
+    background-color: #e4eee8;
+    color: #244b3a;
+}
+
+.announcement-category.cat-event { background-color: #dcebe2; color: #1c3328; }
+.announcement-category.cat-reminder { background-color: #f3ecd2; color: #6b5a1c; }
+.announcement-category.cat-promotion { background-color: #244b3a; color: #ffffff; }
+.announcement-category.cat-important-notice { background-color: #f8dcdc; color: #9b2c2c; }
+
+.announcement-status.live { background-color: #e4eee8; color: #244b3a; }
+.announcement-status.expired { background-color: #f3ecd2; color: #6b5a1c; }
+.announcement-status.archived { background-color: #e6e6e6; color: #555555; }
+
+.announcement-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid #eeeeee;
+}
+
+.announcement-action {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.announcement-action.edit { background-color: #47775b; }
+.announcement-action.archive { background-color: #8a7a3a; }
+.announcement-action.delete { background-color: #dc3545; }
+.announcement-action:hover { opacity: 0.85; }
+
+.announcement-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(28, 51, 40, 0.55);
+}
+
+.announcement-modal-box {
+    width: 100%;
+    max-width: 560px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.announcement-modal-box h2 {
+    color: #244b3a;
+    margin-bottom: 20px;
+}
+
+.announcement-modal-box .form-group input,
+.announcement-modal-box .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.announcement-modal-box .form-group textarea {
+    resize: vertical;
+}
+
+.announcement-modal-box .form-group input:focus,
+.announcement-modal-box .form-group textarea:focus {
+    outline: none;
+    border-color: #47775b;
+}
+
+.announcement-form-error {
+    color: #dc3545;
+    min-height: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.announcement-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.announcement-modal-actions .primary-btn,
+.announcement-modal-actions .secondary-btn {
+    background-color: transparent;
+    cursor: pointer;
+    padding: 12px 24px;
+    font-size: 15px;
+}
+
+.announcement-modal-actions .primary-btn {
+    background-color: #244b3a;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .announcements-hero {
+        padding: 45px 7% 20px;
+    }
+
+    .announcement-list {
+        grid-template-columns: 1fr;
+    }
+
+    .announcement-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .announcement-tabs {
+        justify-content: center;
+    }
+
+    .announcement-modal-box {
+        padding: 22px;
+    }
+}

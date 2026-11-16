@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Cafe - Announcements</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <h2>STUDY CAFE</h2>
+
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#spaces">Study Areas</a></li>
+                <li><a href="index.html#menu">Menu</a></li>
+                <li><a href="index.html#reservation">Reservations</a></li>
+                <li><a href="announcements.html">Announcements</a></li>
+            </ul>
+
+            <a href="login.html" class="login-btn">Login</a>
+        </nav>
+    </header>
+
+    <main class="announcements-page">
+
+        <section class="announcements-hero">
+            <p class="section-label">STAY UPDATED</p>
+            <h1>Announcements &amp; Notices</h1>
+            <p>Important updates, events, reminders, and promotions from Study Cafe.</p>
+        </section>
+
+        <section class="announcements-section">
+
+            <!-- Shown only to Admin and Staff (see js/announcements.js) -->
+            <div class="announcement-toolbar" id="announcementToolbar" hidden>
+                <div class="announcement-tabs">
+                    <button type="button" class="announcement-tab active" id="tabActive">Current</button>
+                    <button type="button" class="announcement-tab" id="tabManage">Manage</button>
+                </div>
+                <button type="button" class="primary-btn announcement-add-btn" id="addAnnouncementBtn">
+                    + New Announcement
+                </button>
+            </div>
+
+            <p id="announcementMessage" class="announcement-message">Loading announcements...</p>
+
+            <div class="announcement-list" id="announcementList"></div>
+
+        </section>
+
+    </main>
+
+    <!-- Add / Edit form (Admin and Staff only) -->
+    <div class="announcement-modal" id="announcementModal" hidden>
+        <div class="announcement-modal-box" role="dialog" aria-modal="true" aria-labelledby="announcementModalTitle">
+            <h2 id="announcementModalTitle">New Announcement</h2>
+
+            <form id="announcementForm">
+                <input type="hidden" id="announcementId">
+
+                <div class="form-group">
+                    <label for="annTitle">Title</label>
+                    <input type="text" id="annTitle" maxlength="150" placeholder="Announcement title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="annMessage">Message</label>
+                    <textarea id="annMessage" rows="5" maxlength="2000" placeholder="Write your announcement..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="annCategory">Category</label>
+                    <select id="annCategory" required>
+                        <option value="General Announcement">General Announcement</option>
+                        <option value="Event">Event</option>
+                        <option value="Reminder">Reminder</option>
+                        <option value="Promotion">Promotion</option>
+                        <option value="Important Notice">Important Notice</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="annPublishedAt">Publish Date (optional)</label>
+                        <input type="datetime-local" id="annPublishedAt">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="annExpiresAt">Expiration Date (optional)</label>
+                        <input type="datetime-local" id="annExpiresAt">
+                    </div>
+                </div>
+
+                <p id="announcementFormError" class="announcement-form-error"></p>
+
+                <div class="announcement-modal-actions">
+                    <button type="button" class="secondary-btn" id="cancelAnnouncementBtn">Cancel</button>
+                    <button type="submit" class="primary-btn" id="saveAnnouncementBtn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+
+            <div class="footer-brand">
+                <h2>STUDY CAFE</h2>
+                <p>Your space to focus, learn, and grow.</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html#home">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#spaces">Study Areas</a>
+                <a href="index.html#menu">Menu</a>
+                <a href="index.html#reservation">Reservations</a>
+                <a href="announcements.html">Announcements</a>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>Email: studycafe@example.com</p>
+                <p>Open for students and learners.</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Study Cafe. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/announcements.js"></script>
+</body>
+
+</html>
